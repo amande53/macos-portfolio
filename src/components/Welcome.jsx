@@ -12,7 +12,7 @@ const FONT_WEIGHTS = {
 
 const renderText = (text, className, baseWeight=400) => {
 	return [...text].map((char, i) => {
-		return <span key={i}
+		return <span key={`${i}-${char}`}
 		      className={className}
 		      style={{fontVariationSettings: `'wght' ${baseWeight}`}}>
 			{char === " "? "\u00A0": char}
@@ -21,7 +21,7 @@ const renderText = (text, className, baseWeight=400) => {
 }
 
 const setupTextHover =(container, type) => {
-	if(!container) return;
+	if(!container) return () => {};
 
 	const letters = container.querySelectorAll('span');
 	const {min, max, default: base} = FONT_WEIGHTS[type];
@@ -81,10 +81,10 @@ const Welcome = () => {
 
 	return (
   <section id="welcome">
-	  <p ref={subtitleRef}> {renderText("Hey I'm Amanda! Welcome to my", 'text-3xl font-georama', 100)} </p>
+	  <p ref={subtitleRef}> {renderText("Hey, I'm Amanda! Welcome to my", 'text-3xl font-georama', 100)} </p>
 	  <h1 ref={titleRef}>{renderText("portfolio",'text-9xl font-georama' )}</h1>
 
-	  <div className={"small-screen"}> This Portfolio is designed for desktop/tablet screen.</div>
+	  <aside className="small-screen" role="status" aria-live="polite">This portfolio is best viewed on desktop or tablet screens</aside>
 
   </section>
 	);

@@ -13,9 +13,11 @@ const App = () => {
 			<Welcome />
 			<Dock />
 			
-			<Resume />
-			<Safari />
+			
 			<Terminal />
+			<Safari />
+			<Resume />
+			
 		</main>
 	);
 };

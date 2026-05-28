@@ -9,7 +9,11 @@ const Text = () => {
 	if (!data) return null;
 
 	const { name, subtitle, image, description } = data;
-	const descriptionList = Array.isArray(description) ? description : [];
+	const descriptionList = Array.isArray(description)
+		? description
+		: description != null
+			? [description]
+			: [];
 
 	return (
 		<>

@@ -9,6 +9,7 @@ const Text = () => {
 	if (!data) return null;
 
 	const { name, subtitle, image, description } = data;
+	const descriptionList = Array.isArray(description) ? description : [];
 
 	return (
 		<>
@@ -38,7 +39,7 @@ const Text = () => {
 					)}
 
 					<div className="space-y-4">
-						{description?.map((paragraph, index) => (
+						{descriptionList.map((paragraph, index) => (
 							<p key={index} className="text-gray-800 leading-relaxed">
 								{paragraph}
 							</p>

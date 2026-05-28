@@ -6,7 +6,7 @@ const Contact = () => {
 	return (
 		<>
 			<div id="window-header">
-				<WindowControls/>
+				<WindowControls target="contact"/>
 				<h2>Contact Me</h2>
 			</div>
 			
